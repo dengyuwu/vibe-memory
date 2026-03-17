@@ -1,7 +1,7 @@
 Use this repository to install development memory workflow for Claude Code projects.
 
 Suggested one-line prompt:
-`Install dev-memory-protocol from this repository for the current project, append rules to CLAUDE.md without overwriting existing content, initialize .ai memory files, and keep existing project rules intact.`
+`帮我从这个仓库安装 dev-memory-protocol：https://github.com/dengyuwu/dev-memory-protocol-skill`
 
 Expected execution:
 1. Read `bootstrap/install.md`.

@@ -1,6 +1,7 @@
 # Hook Adapters
 
 Use hooks as trigger points and Node scripts as the execution layer.
+The intended user experience is automatic: install once, then let hooks read, recall, generate candidates, and rebuild indexes without requiring manual commands during normal development.
 
 ## Suggested Events
 
@@ -31,6 +32,8 @@ For any tool integration, keep the adapter behavior consistent:
 2. After major fixes or decisions, prefer `capture-from-diff.mjs` to generate a candidate from current git changes.
 3. Use `capture.mjs` only when there is no useful diff context or when a manual record is clearer.
 4. After writeback, call `index.mjs`.
+
+Treat these commands as implementation details behind hooks, not as the primary day-to-day user workflow.
 
 ## Example Commands
 

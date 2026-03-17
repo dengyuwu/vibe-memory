@@ -10,7 +10,8 @@ Installation contract:
 3. Run `node ./skills/dev-memory-protocol/scripts/install.mjs --project <target-project>`.
 4. Append the managed rule block only. Never overwrite existing rules outside the managed block.
 5. Initialize `.ai/` files if missing. Do not delete user-authored memory files.
-6. Report which files were created or updated.
+6. Prefer wiring hooks so memory read, recall, candidate capture, and indexing run automatically after installation.
+7. Report which files were created or updated.
 
 Supported environment:
 - Windows and macOS
@@ -18,7 +19,7 @@ Supported environment:
 - Codex and Claude Code
 
 User-facing one-line prompt:
-`Install dev-memory-protocol from this repository for the current project, support Codex and Claude Code, append rules without overwriting AGENTS.md or CLAUDE.md, initialize .ai memory files, and keep existing project rules intact.`
+`帮我从这个仓库安装 dev-memory-protocol：https://github.com/dengyuwu/dev-memory-protocol-skill`
 
 Auto-detect behavior:
 - If only `AGENTS.md` exists, install for Codex.

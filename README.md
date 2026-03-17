@@ -35,6 +35,7 @@
 - 只在 `AGENTS.md` / `CLAUDE.md` 末尾追加受控规则块
 - 初始化 `.ai/project`、`.ai/memory`、`.ai/index`
 - 不覆盖用户已有规则和已有记忆文件
+- 安装完成后，推荐通过 hook 自动执行读取、召回、候选生成和整理流程
 
 ## 一句话移除
 
@@ -75,12 +76,33 @@ package.json
 README.md
 ```
 
+## 默认工作流
+
+安装之后，推荐把这个 skill 接到 `Codex` 或 `Claude Code` 的 hook 上，让它自动完成下面这些事：
+
+1. 任务开始时自动读取基础记忆
+   - `.ai/project/overview.md`
+   - `.ai/project/config-map.md`
+   - `.ai/memory/handoff.md`
+   - `.ai/memory/known-risks.md`
+2. 编辑前自动按当前任务召回相关 bug、decision、risk
+3. 修改后自动基于 `git diff` 生成候选记忆
+4. 任务结束后自动重建索引并整理记忆
+
+这才是这个 skill 的主使用方式。
+
+`recall.mjs`、`capture.mjs`、`index.mjs` 这些命令仍然保留，但它们主要是：
+
+- 调试自动流程
+- 在没有 hook 的环境下兜底使用
+- 手工补录特别重要的 bug 或 decision
+
 ## 核心脚本
 
 - `install.mjs`：安装协议，追加规则并初始化 `.ai/`
 - `uninstall.mjs`：移除协议，只删除受控规则块
-- `recall.mjs`：按任务关键词召回相关记忆
-- `capture.mjs`：手工写入 bug/decision 记录
+- `recall.mjs`：供 hook 或调试流程使用的记忆召回底层能力
+- `capture.mjs`：手工写入 bug/decision 记录的兜底入口
 - `capture-from-diff.mjs`：根据当前 `git diff` 生成候选记忆，显式 `--write true` 才落盘
 - `index.mjs`：重建 `.ai/index`
 - `compact.mjs`：整理基础记忆文件格式
@@ -113,7 +135,9 @@ README.md
     └── tags.json
 ```
 
-## 本地命令
+## 手动命令
+
+这些命令不是日常主流程，而是给没有接 hook 的项目、调试场景、或手动补录使用：
 
 ```bash
 npm run install:auto
