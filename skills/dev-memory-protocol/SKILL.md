@@ -15,6 +15,13 @@ Use this skill to install or operate a project-local memory layer for software d
 4. Append the managed rule block only. Do not overwrite user rules outside the managed block.
 5. Initialize `.ai/` in the target project.
 
+## Enable Global Bootstrap
+
+1. Read `references/global-bootstrap.md`.
+2. Run `node "<path-to-this-skill>/scripts/install-global.mjs"`.
+3. Let the skill append its managed global bootstrap block to `~/.codex/AGENTS.md`.
+4. Use `uninstall-global.mjs` to remove only that managed global block later.
+
 ## Uninstall
 
 1. Read `references/uninstalling.md`.
@@ -32,6 +39,7 @@ Use this skill to install or operate a project-local memory layer for software d
 ## References
 
 - Read `references/installing.md` when initializing a project from an already-installed skill.
+- Read `references/global-bootstrap.md` when enabling or disabling global bootstrap from an installed skill.
 - Read `references/uninstalling.md` when removing the protocol from a project.
 - Read `references/protocol.md` for the memory layout and installation contract.
 - Read `references/writeback-policy.md` before writing back memory records.

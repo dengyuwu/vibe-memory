@@ -8,3 +8,5 @@ Expected execution:
 2. Run `node ./skills/dev-memory-protocol/scripts/uninstall.mjs --tool codex --project <target-project>`.
 3. Report the files updated and the memory files retained.
 
+Optional global bootstrap removal:
+- If the user previously enabled Codex-wide auto-bootstrap, run `node ./skills/dev-memory-protocol/scripts/uninstall-global.mjs`.

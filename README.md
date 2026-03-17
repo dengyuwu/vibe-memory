@@ -52,6 +52,14 @@
 node "<installed-skill-path>/scripts/install.mjs" --project .
 ```
 
+如果你希望以后每次进入项目对话都能自动检查 `.ai`、不存在就初始化，那么还需要额外启用一次**全局 bootstrap**：
+
+```bash
+node "<installed-skill-path>/scripts/install-global.mjs"
+```
+
+这个全局 bootstrap 也是由 skill 自己追加受控区块到 `~/.codex/AGENTS.md`，不是手工硬改。
+
 ## 一句话移除
 
 如果你想移除这个协议，把仓库链接发给 AI，然后使用下面这句话：
@@ -115,7 +123,9 @@ README.md
 ## 核心脚本
 
 - `install.mjs`：安装协议，追加规则并初始化 `.ai/`
+- `install-global.mjs`：由 skill 为 Codex 安装全局自动引导区块
 - `uninstall.mjs`：移除协议，只删除受控规则块
+- `uninstall-global.mjs`：移除 skill 追加的全局自动引导区块
 - `recall.mjs`：供 hook 或调试流程使用的记忆召回底层能力
 - `capture.mjs`：手工写入 bug/decision 记录的兜底入口
 - `capture-from-diff.mjs`：根据当前 `git diff` 生成候选记忆，显式 `--write true` 才落盘
@@ -156,7 +166,9 @@ README.md
 
 ```bash
 npm run install:auto
+npm run install:global
 npm run uninstall:auto
+npm run uninstall:global
 npm run recall -- --query "refund callback"
 npm run capture:diff -- --type bug --query "fix refund status sync"
 npm run index
@@ -165,5 +177,6 @@ npm run index
 ## 进一步阅读
 
 - 协议说明：[skills/dev-memory-protocol/references/protocol.md](./skills/dev-memory-protocol/references/protocol.md)
+- 全局引导：[skills/dev-memory-protocol/references/global-bootstrap.md](./skills/dev-memory-protocol/references/global-bootstrap.md)
 - 回写策略：[skills/dev-memory-protocol/references/writeback-policy.md](./skills/dev-memory-protocol/references/writeback-policy.md)
 - Hook 接入建议：[skills/dev-memory-protocol/references/hook-adapters.md](./skills/dev-memory-protocol/references/hook-adapters.md)

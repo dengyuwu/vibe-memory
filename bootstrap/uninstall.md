@@ -11,6 +11,7 @@ Uninstall contract:
 4. Remove only the managed rule block. Never modify user-authored rules outside the managed block.
 5. Keep `.ai/` project memory files by default so the user does not lose project knowledge.
 6. Report which files were updated and which memory files were retained.
+7. If the user also enabled the skill-managed global bootstrap earlier, tell them to remove it with `uninstall-global.mjs`.
 
 Supported environment:
 - Windows and macOS

@@ -12,6 +12,7 @@ Installation contract:
 5. Initialize `.ai/` files if missing. Do not delete user-authored memory files.
 6. Prefer wiring hooks so memory read, recall, candidate capture, and indexing run automatically after installation.
 7. Report which files were created or updated.
+8. If the user wants auto-bootstrap across future Codex project conversations, tell them to enable the skill-managed global bootstrap with `install-global.mjs`.
 
 Supported environment:
 - Windows and macOS

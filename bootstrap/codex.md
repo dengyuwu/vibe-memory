@@ -8,5 +8,8 @@ Expected execution:
 2. Run `node ./skills/dev-memory-protocol/scripts/install.mjs --tool codex --project <target-project>`.
 3. Report the files created or updated.
 
+Optional global bootstrap:
+- If the user wants future Codex project conversations to auto-check and auto-initialize `.ai`, run `node ./skills/dev-memory-protocol/scripts/install-global.mjs`.
+
 Removal guide:
 - Read `bootstrap/remove-codex.md` or `bootstrap/uninstall.md`.
