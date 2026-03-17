@@ -1,0 +1,50 @@
+{
+  "name": "dev-memory-protocol",
+  "version": "0.1.0",
+  "repository_layout": {
+    "skill_path": "skills/dev-memory-protocol",
+    "install_doc": "bootstrap/install.md",
+    "install_script": "skills/dev-memory-protocol/scripts/install.mjs",
+    "uninstall_doc": "bootstrap/uninstall.md",
+    "uninstall_script": "skills/dev-memory-protocol/scripts/uninstall.mjs"
+  },
+  "default_install_mode": "auto",
+  "supported_tools": [
+    "codex",
+    "claude"
+  ],
+  "supported_platforms": [
+    "win32",
+    "darwin"
+  ],
+  "managed_block_id": "dev-memory-protocol",
+  "memory_root": ".ai",
+  "rule_targets": {
+    "codex": [
+      "AGENTS.md"
+    ],
+    "claude": [
+      "CLAUDE.md"
+    ],
+    "both": [
+      "AGENTS.md",
+      "CLAUDE.md"
+    ]
+  },
+  "constraints": [
+    "append_only_rules",
+    "no_secret_storage",
+    "project_memory_preferred_over_global_preferences",
+    "verified_knowledge_only"
+  ],
+  "baseline_memory_files": [
+    ".ai/project/overview.md",
+    ".ai/project/config-map.md",
+    ".ai/memory/handoff.md",
+    ".ai/memory/known-risks.md"
+  ],
+  "related_memory_dirs": [
+    ".ai/memory/bugs",
+    ".ai/memory/decisions"
+  ]
+}
