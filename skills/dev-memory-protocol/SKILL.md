@@ -9,16 +9,16 @@ Use this skill to install or operate a project-local memory layer for software d
 
 ## Install
 
-1. Read `../../../bootstrap/install.md`.
-2. Read `../../../bootstrap/manifest.json`.
-3. Run `node ./skills/dev-memory-protocol/scripts/install.mjs --project <target-project>`.
-4. Pass `--tool codex`, `--tool claude`, or `--tool both` only when the user explicitly requests one target.
-5. Append the managed rule block only. Do not overwrite user rules outside the managed block.
+1. Read `references/installing.md`.
+2. Run `node "<path-to-this-skill>/scripts/install.mjs" --project <target-project>`.
+3. Pass `--tool codex`, `--tool claude`, or `--tool both` only when the user explicitly requests one target.
+4. Append the managed rule block only. Do not overwrite user rules outside the managed block.
+5. Initialize `.ai/` in the target project.
 
 ## Uninstall
 
-1. Read `../../../bootstrap/uninstall.md`.
-2. Run `node ./skills/dev-memory-protocol/scripts/uninstall.mjs --project <target-project>`.
+1. Read `references/uninstalling.md`.
+2. Run `node "<path-to-this-skill>/scripts/uninstall.mjs" --project <target-project>`.
 3. Remove only the managed rule block from `AGENTS.md`, `CLAUDE.md`, or both.
 4. Keep `.ai/` memory files unless the user explicitly asks for a destructive cleanup.
 
@@ -31,6 +31,8 @@ Use this skill to install or operate a project-local memory layer for software d
 
 ## References
 
+- Read `references/installing.md` when initializing a project from an already-installed skill.
+- Read `references/uninstalling.md` when removing the protocol from a project.
 - Read `references/protocol.md` for the memory layout and installation contract.
 - Read `references/writeback-policy.md` before writing back memory records.
 - Read `references/hook-adapters.md` when wiring hooks in Codex or Claude Code.

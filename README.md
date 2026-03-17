@@ -37,6 +37,21 @@
 - 不覆盖用户已有规则和已有记忆文件
 - 安装完成后，推荐通过 hook 自动执行读取、召回、候选生成和整理流程
 
+## 重要说明
+
+“把 skill 安装进 Codex” 和 “把协议初始化到当前项目” 不是一回事。
+
+- 安装到 Codex：只是让 Codex 认识这个 skill
+- 初始化到项目：才会真正生成 `.ai/` 并写入 `AGENTS.md` / `CLAUDE.md`
+
+如果你已经把 skill 安装进 Codex，但项目里还没有 `.ai/`，说明当前项目还没有执行初始化。
+
+这时应该让 AI 使用这个 skill 对当前项目执行初始化，或者直接运行：
+
+```bash
+node "<installed-skill-path>/scripts/install.mjs" --project .
+```
+
 ## 一句话移除
 
 如果你想移除这个协议，把仓库链接发给 AI，然后使用下面这句话：
